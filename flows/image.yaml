@@ -5,15 +5,14 @@ triggers:
         ignorecase: true
         keyword: image
 states:
-    # meya.text is required before meya.card
+    # meya.text is required before meya.image
     basic_card_0:
         component: meya.text
         properties:
             text: This is an image example.
     basic_card_1:
-        component: meya.card
+        component: meya.image
         properties:
-            passthru: true
-            expect_user_action: false
-            text: ""
             image_url: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg"
+            accessibility_text: "Messi photo" # optional
+            image_display_options: "WHITE" # optional

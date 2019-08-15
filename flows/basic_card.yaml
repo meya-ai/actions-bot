@@ -17,6 +17,7 @@ states:
             subtitle: Basic card subtitle
             text: "Formatted text goes here"
             image_url: "https://upload.wikimedia.org/wikipedia/commons/7/71/2010-kodiak-bear-1.jpg"
+            accessibility_text: "bear photo"
             output: button_click
             # required if no buttons are specified
             passthru: true
