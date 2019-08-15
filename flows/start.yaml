@@ -2,7 +2,7 @@ triggers:
   - type: meya.start_voice_chat
 intents:
     # change this value to change the default behavior of the bot
-    start: image_buttons
+    start: list
 states:
     simple_response:
         flow: simple_response
@@ -36,4 +36,7 @@ states:
         return: true
     table_buttons:
         flow: table_buttons
+        return: true
+    list:
+        flow: list
         return: true

@@ -1,0 +1,55 @@
+triggers:
+  - type: meya.keyword
+    properties:
+        ignorecase: true
+        keyword: list
+states:
+    # meya.text is required before meya.card
+    list_0:
+        component: meya.text
+        properties:
+            text: This is a list example.
+    list_1:
+        component: meya.list
+        properties:
+            title: List Title
+            output: option_selected
+            elements:
+                - title: "Robot 1"
+                  subtitle: "It's a hand"
+                  image_url: "https://image.shutterstock.com/image-photo/robotic-artificial-intelligence-robo-advisor-600w-664114771.jpg"
+                  # only 1 transition button allowed
+                  buttons:
+                    - text: robot1
+                      action: selection
+                - title: "Robot 2"
+                  subtitle: "It's a creepy face"
+                  image_url: "https://image.shutterstock.com/image-photo/moscow-russia-october-16-2017-600w-754222927.jpg"
+                  buttons:
+                    - text: robot2
+                      action: selection
+                - title: "Robot 3"
+                  subtitle: "Why is it a brain?"
+                  image_url: "https://image.shutterstock.com/image-photo/concept-artificial-brain-robot-composed-600w-261598403.jpg"
+                  buttons:
+                    - text: robot3
+                      action: selection
+            # optional suggestions
+            buttons:
+                - text: transition
+                  action: suggestion
+                - text: link
+                  url: https://meya.ai
+        transitions:
+            suggestion: list_2
+            selection: list_3
+    list_2:
+        component: meya.text
+        properties:
+            text: You clicked a suggestion. {{ flow.option_selected }}
+        return: true
+    list_3:
+        component: meya.text
+        properties:
+            text: You selected on option. {{ flow.option_selected }}
+        return: true
