@@ -1,0 +1,44 @@
+# supported: phone, smart display (partial)
+triggers:
+  - type: meya.keyword
+    properties:
+        ignorecase: true
+        keyword: basic_card_buttons
+states:
+    # meya.text is required before meya.card
+    basic_card_0:
+        component: meya.text
+        properties:
+            text: This is a basic card example.
+    basic_card_1:
+        component: meya.card
+        properties:
+            title: Basic card title
+            subtitle: Basic card subtitle
+            text: "Formatted text goes here"
+            image_url: "https://upload.wikimedia.org/wikipedia/commons/7/71/2010-kodiak-bear-1.jpg"
+            output: button_click
+            # buttons are optional
+            buttons:
+                # rendered as suggestions
+                - text: transition
+                  action: button_action
+                  data:
+                    foo: bar
+                # supported: phone
+                # rendered in card
+                - text: link
+                  url: https://meya.ai
+                - text: start
+                  action: subflow
+        transitions:
+            button_action: basic_card_2
+            subflow: basic_card_3
+    basic_card_2:
+        component: meya.text
+        properties:
+            text: You clicked {{ flow.button_click }}. Your data is {{ flow.foo }}
+        return: true
+    basic_card_3:
+        flow: subflow
+        return: true

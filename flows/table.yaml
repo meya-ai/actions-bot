@@ -1,0 +1,41 @@
+triggers:
+  - type: meya.keyword
+    properties:
+        ignorecase: true
+        keyword: table
+states:
+    table_0:
+        component: meya.text
+        properties:
+            text: "This is a table example"
+    table_1:
+        component: meya.table
+        properties:
+            title: "Table title"
+            subtitle: "Table subtitle"   # title must be set first
+            image_url: "https://developers.google.com/actions/images/badges/XPM_BADGING_GoogleAssistant_VER.png"
+            accessibility_text: "Alt Text"
+            columns:
+                - header: "header 1"
+                - header: "header 2"
+                  alignment: "CENTER" # CENTER, LEADING (default), TRAILING
+                - header: "header 3"
+                  alignment: "TRAILING"
+            rows:
+                - cells:
+                    - text: "row 1 item 1"
+                    - text: "row 1 item 2"
+                    - text: "row 1 item 3"
+                - cells:
+                    - text: "row 2 item 1"
+                    - text: "row 2 item 2"
+                    - text: "row 2 item 3"
+                  divider: true
+                - cells:
+                    - text: "row 3 item 1"
+                    - text: "row 3 item 2"
+                    - text: "row 4 item 3"
+                  divider: false
+            # required if no buttons are specified
+            passthru: true
+            expect_user_action: false

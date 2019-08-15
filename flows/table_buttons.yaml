@@ -1,0 +1,54 @@
+triggers:
+  - type: meya.keyword
+    properties:
+        ignorecase: true
+        keyword: table_buttons
+states:
+    table_0:
+        component: meya.text
+        properties:
+            text: "This is a table example w/ buttons."
+    table_1:
+        component: meya.table
+        properties:
+            title: "Table title"
+            subtitle: "Table subtitle"   # title must be set first
+            image_url: "https://developers.google.com/actions/images/badges/XPM_BADGING_GoogleAssistant_VER.png"
+            accessibility_text: "Alt Text"
+            columns:
+                - header: "header 1"
+                - header: "header 2"
+                  alignment: "CENTER" # CENTER, LEADING (default), TRAILING
+                - header: "header 3"
+                  alignment: "TRAILING"
+            rows:
+                - cells:
+                    - text: "row 1 item 1"
+                    - text: "row 1 item 2"
+                    - text: "row 1 item 3"
+                - cells:
+                    - text: "row 2 item 1"
+                    - text: "row 2 item 2"
+                    - text: "row 2 item 3"
+                  divider: true
+                - cells:
+                    - text: "row 3 item 1"
+                    - text: "row 3 item 2"
+                    - text: "row 4 item 3"
+                  divider: false
+            # buttons are optional
+            buttons:
+                # appears as suggestions
+                - text: transition
+                  action: next
+                  data:
+                    foo: bar
+                # appears as link button on table
+                # supported: phone
+                - text: link
+                  url: https://meya.ai
+    table_2:
+        component: meya.text
+        properties:
+            text: You clicked {{ flow.button_click }}. Your data is {{ flow.foo }}
+        return: true
