@@ -3,11 +3,6 @@ triggers:
     properties:
         ignorecase: true
         keyword: audio
-triggers:
-  - type: meya.keyword
-    properties:
-        ignorecase: true
-        keyword: audio
 states:
     # meya.text required before meya.audio
     audio_0:
