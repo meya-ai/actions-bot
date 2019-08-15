@@ -1,0 +1,29 @@
+triggers:
+  - type: meya.start_voice_chat
+intents:
+    start: audio
+states:
+    simple_response:
+        flow: simple_response
+        return: true
+    basic_card:
+        flow: basic_card
+        return: true
+    text_suggestions:
+        flow: text_suggestions
+        return: true
+    text_buttons:
+        flow: text_buttons
+        return: true
+    image_buttons:
+        flow: image_buttons
+        return: true
+    image:
+        flow: image
+        return: true
+    browsing_carousel:
+        flow: browsing_carousel
+        return: true
+    audio:
+        flow: audio
+        return: true

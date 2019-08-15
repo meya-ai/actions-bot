@@ -1,0 +1,20 @@
+triggers:
+  - type: meya.keyword
+    properties:
+        ignorecase: true
+        keyword: audio
+states:
+    # meya.text required before meya.audio
+    audio_0:
+        component: meya.text
+        properties:
+            text: "This is a media response example."
+    audio_1:
+        component: meya.audio
+        properties:
+            url: "https://storage.googleapis.com/automotive-media/Jazz_In_Paris.mp3"
+            # new custom properties
+            accessibility_text: "Ocean view"
+            icon_url: "https://storage.googleapis.com/automotive-media/album_art.jpg"
+            description: "A funky Jazz tune"
+            name: "Jazz in Paris"

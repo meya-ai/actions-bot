@@ -1,0 +1,41 @@
+# supported: phone
+triggers:
+  - type: meya.keyword
+    properties:
+        ignorecase: true
+        keyword: browsing_carousel
+states:
+    # meya.text is required before meya.cards
+    browsing_carousel_0:
+        component: meya.text
+        properties:
+            text: This is a browse carousel example.
+    browsing_carousel_1:
+        component: meya.cards
+        properties:
+            passthru: true
+            expect_user_action: false
+            output: button_click
+            elements:
+                - title: "Title of item 1"
+                  text: "Description of item 1"
+                  item_url: "https://www.google.com/"
+                  image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2560px-Google_%22G%22_Logo.svg.png"
+                  footer: "Item 1 footer"
+                  buttons:
+                    - text: Link
+                      url: "https://en.wikipedia.org"
+                    - text: Transition1
+                      action: next
+                - title: "Google Assistant"
+                  text: "Google Assistant on Android and iOS"
+                  item_url: "https://meya.ai/"
+                  image_url: "https://upload.wikimedia.org/wikipedia/en/2/2c/Google_Actions_Logo.png"
+                  footer: "Item 2 footer"
+                  buttons:
+                    - text: Transition2
+                      action: next
+    browsing_carousel_2:
+        component: meya.text
+        properties:
+            text: The next state {{ flow.button_click }}

@@ -1,0 +1,12 @@
+# supported: speaker, phone, smart display
+triggers:
+  - type: meya.keyword
+    properties:
+        ignorecase: true
+        keyword: simple_response
+states:
+    simple_response:
+        component: meya.text
+        properties:
+            text: Simple response test
+        return: true

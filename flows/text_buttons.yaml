@@ -1,0 +1,25 @@
+# supported: phone, smart display (partial)
+triggers:
+  - type: meya.keyword
+    properties:
+        ignorecase: true
+        keyword: text_buttons
+states:
+    text_buttons_0:
+        component: meya.text_buttons
+        properties:
+            text: text buttons test
+            output: button_click
+            buttons:
+                - text: transition
+                  action: next
+                - text: transition2
+                  action: next
+                # supported: phone
+                - text: link
+                  url: https://meya.ai
+    text_buttons_1:
+        component: meya.text
+        properties:
+            text: You clicked {{ flow.button_click }}
+        return: true

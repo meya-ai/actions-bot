@@ -1,0 +1,27 @@
+# supported: phone, smart display
+triggers:
+  - type: meya.keyword
+    properties:
+        ignorecase: true
+        keyword: text_suggestions
+states:
+    text_suggestions_0:
+        component: meya.text_suggestions
+        properties:
+            text: text suggestions test
+            suggestions:
+                - suggestion_1
+                - suggestion_2
+        transitions:
+            suggestion_1: text_suggestions_1
+            suggestion_2: text_suggestions_2
+    text_suggestions_1:
+        component: meya.text
+        properties:
+            text: Suggestion 1
+        return: true
+    text_suggestions_2:
+        component: meya.text
+        properties:
+            text: Suggestion 2
+        return: true

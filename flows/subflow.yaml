@@ -1,0 +1,10 @@
+triggers:
+  - type: meya.keyword
+    properties:
+        ignorecase: true
+        keyword: _subflow
+states:
+    first:
+        component: meya.text
+        properties:
+            text: subflow
