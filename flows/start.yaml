@@ -18,6 +18,8 @@ states:
                 - Table cards
                 - List
                 - Carousel
+                - No input
+            block: true
         transitions:
             Basic card: basic_card_buttons
             Suggestion chips: text_buttons
@@ -26,6 +28,8 @@ states:
             Table cards: table_buttons
             List: list
             Carousel: carousel
+            No input: no_input
+            no_match: choose
     simple_response:
         flow: simple_response
         return: true
@@ -64,4 +68,7 @@ states:
         return: true
     carousel:
         flow: carousel
+        return: true
+    no_input:
+        flow: no_input
         return: true

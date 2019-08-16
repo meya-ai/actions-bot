@@ -1,0 +1,21 @@
+triggers:
+  - type: meya.keyword
+    properties:
+        ignorecase: true
+        keyword: no_input
+states:
+    no_input_1:
+        component: meya.input_pattern
+        properties:
+            text: "What's your favorite color?"
+            pattern: "^(?!actions.intent.NO_INPUT).*$"
+            output: color
+            scope: user
+            error_message: "Sorry, I couldn't hear you. Try again."
+            # alternatively, you can set require_match: false
+            # and handle no_match for more advanced use-cases
+            require_match: true
+    no_input_2:
+        component: meya.text
+        properties:
+            text: "{{user.color}} is a nice color. 🎨"
