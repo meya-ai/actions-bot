@@ -4,7 +4,7 @@ triggers:
         ignorecase: true
         keyword: list
 states:
-    # meya.text is required before meya.card
+    # meya.text is required before meya.list
     list_0:
         component: meya.text
         properties:
