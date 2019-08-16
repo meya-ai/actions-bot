@@ -2,8 +2,30 @@ triggers:
   - type: meya.start_voice_chat
 intents:
     # change this value to change the default behavior of the bot
-    start: list
+    start: choose
 states:
+    choose:
+        component: meya.text_suggestions
+        properties:
+            text:
+                Welcome to Meya's Google Assistant demo.
+                Make a choice of what you'd like to see.
+            suggestions:
+                - Basic card
+                - Suggestion chips
+                - Browsing carousel
+                - Media responses
+                - Table cards
+                - List
+                - Carousel
+        transitions:
+            Basic card: basic_card_buttons
+            Suggestion chips: text_buttons
+            Browsing carousel: browsing_carousel
+            Media responses: audio
+            Table cards: table_buttons
+            List: list
+            Carousel: carousel
     simple_response:
         flow: simple_response
         return: true
@@ -39,4 +61,7 @@ states:
         return: true
     list:
         flow: list
+        return: true
+    carousel:
+        flow: carousel
         return: true
