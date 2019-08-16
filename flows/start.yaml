@@ -72,3 +72,6 @@ states:
     no_input:
         flow: no_input
         return: true
+    cancel:
+        flow: cancel
+        return: true

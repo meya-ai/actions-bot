@@ -18,4 +18,4 @@ states:
     no_input_2:
         component: meya.text
         properties:
-            text: "{{user.color}} is a nice color. 🎨"
+            text: "{{user.color}} is a nice color."

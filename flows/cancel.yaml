@@ -1,0 +1,10 @@
+triggers:
+  - type: meya.keyword
+    properties:
+        ignorecase: true
+        keyword: actions.intent.CANCEL
+states:
+    first:
+        component: meya.text
+        properties:
+            text: Sad to see you go.
