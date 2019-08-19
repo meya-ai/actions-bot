@@ -76,3 +76,6 @@ states:
     cancel:
         flow: cancel
         return: true
+    ssml:
+        flow: ssml
+        return: true

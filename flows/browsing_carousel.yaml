@@ -13,8 +13,9 @@ states:
     browsing_carousel_1:
         component: meya.cards
         properties:
-            passthru: true
-            expect_user_action: false
+            # uncomment these properties to auto-advance to next state
+            # passthru: true
+            # expect_user_action: false
             output: button_click
             elements:
                 - title: "Title of item 1"
